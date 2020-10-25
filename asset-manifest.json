@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "https://rvanasa.github.io/border-stories/static/css/main.c1c9667c.chunk.css",
-    "main.js": "https://rvanasa.github.io/border-stories/static/js/main.da2287fa.chunk.js",
-    "main.js.map": "https://rvanasa.github.io/border-stories/static/js/main.da2287fa.chunk.js.map",
+    "main.js": "https://rvanasa.github.io/border-stories/static/js/main.0848e441.chunk.js",
+    "main.js.map": "https://rvanasa.github.io/border-stories/static/js/main.0848e441.chunk.js.map",
     "runtime-main.js": "https://rvanasa.github.io/border-stories/static/js/runtime-main.b780a258.js",
     "runtime-main.js.map": "https://rvanasa.github.io/border-stories/static/js/runtime-main.b780a258.js.map",
-    "static/js/2.8a363d2d.chunk.js": "https://rvanasa.github.io/border-stories/static/js/2.8a363d2d.chunk.js",
-    "static/js/2.8a363d2d.chunk.js.map": "https://rvanasa.github.io/border-stories/static/js/2.8a363d2d.chunk.js.map",
+    "static/js/2.5b4669f5.chunk.js": "https://rvanasa.github.io/border-stories/static/js/2.5b4669f5.chunk.js",
+    "static/js/2.5b4669f5.chunk.js.map": "https://rvanasa.github.io/border-stories/static/js/2.5b4669f5.chunk.js.map",
     "index.html": "https://rvanasa.github.io/border-stories/index.html",
-    "precache-manifest.e2510833ad2516ab59e50ec038e338b0.js": "https://rvanasa.github.io/border-stories/precache-manifest.e2510833ad2516ab59e50ec038e338b0.js",
+    "precache-manifest.5f4614368f9d958ba4ecd86dfb84e221.js": "https://rvanasa.github.io/border-stories/precache-manifest.5f4614368f9d958ba4ecd86dfb84e221.js",
     "service-worker.js": "https://rvanasa.github.io/border-stories/service-worker.js",
     "static/css/main.c1c9667c.chunk.css.map": "https://rvanasa.github.io/border-stories/static/css/main.c1c9667c.chunk.css.map",
-    "static/js/2.8a363d2d.chunk.js.LICENSE.txt": "https://rvanasa.github.io/border-stories/static/js/2.8a363d2d.chunk.js.LICENSE.txt"
+    "static/js/2.5b4669f5.chunk.js.LICENSE.txt": "https://rvanasa.github.io/border-stories/static/js/2.5b4669f5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b780a258.js",
-    "static/js/2.8a363d2d.chunk.js",
+    "static/js/2.5b4669f5.chunk.js",
     "static/css/main.c1c9667c.chunk.css",
-    "static/js/main.da2287fa.chunk.js"
+    "static/js/main.0848e441.chunk.js"
   ]
 }
