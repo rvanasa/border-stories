@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://rvanasa.github.io/border-stories/precache-manifest.0577b875a54e2f4f0a40c28a705eff02.js"
+  "https://rvanasa.github.io/border-stories/precache-manifest.32a184d1df9b2bdbdd5fe4327239f532.js"
 );
 
 self.addEventListener('message', (event) => {
