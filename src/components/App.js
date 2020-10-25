@@ -156,9 +156,12 @@ export default function App() {
 
     let groupInfo = MAP_GROUPS[group];
 
+    let width = window.innerWidth >= 800 ? 300 : null;
+    let height = width ? '100vh' : null;
+
     return (
-        <div className="d-flex" style={{background: '#222'}}>
-            <div className="p-2" style={{minWidth: 300, width: 300, height: '100vh'}}>
+        <div className="d-flex flex-column flex-md-row" style={{background: '#222'}}>
+            <div className="p-2" style={{minWidth: width, width, height}}>
                 <div className="mt-1">
                     <Select
                         className="w-100"
@@ -173,7 +176,7 @@ export default function App() {
                     />
                 </div>
                 {groupInfo ? (<>
-                    <ul className="list-group mt-3">
+                    <ul className="list-group mt-3 mb-2">
                         {groupInfo.regions && groupInfo.regions.map(id => (
                             <li key={id}
                                 className={classNames('list-group-item noselect clickable', region === id && 'pl-3')}
@@ -186,22 +189,24 @@ export default function App() {
                         ))}
                     </ul>
                 </>) : (<>
-                    <div className="py-5 pl-5 ml-4">
+                    <div className="m-5 pl-4 d-none d-md-block">
                         <FaArrowUp className="text-dark" size={100}/>
                     </div>
-                    <div className="px-2">
-                        <h3 className="text-white">Can <span className="text-warning">Google Maps</span> spread propaganda?</h3>
-                        <h4 className="text-white-50">View borders from different countries and decide for yourself.</h4>
+                    <div className="px-2 mt-4">
+                        <h3 className="text-white">Can <span className="text-warning">Google Maps</span> spread
+                            propaganda?</h3>
+                        <h4 className="text-white-50">View borders from different countries and decide for
+                            yourself.</h4>
                     </div>
                 </>)}
             </div>
             <MapContainer
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?${Object.entries(mapParams).map(([k, v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v)).join('&')}`}
-                loadingElement={<div style={{width: '100%', height: '100%'}}/>}
                 containerElement={<div className="flex-grow-1"/>}
-                mapElement={<div style={{width: '100%', height: '100%'}}/>}
+                loadingElement={<div style={{width: '100%', height: '100%', minHeight: 300}}/>}
+                mapElement={<div style={{width: '100%', height: '100%', minHeight: 300}}/>}
             />
-            <div className="p-2" style={{minWidth: 300, width: 300, height: '100vh'}}>
+            <div className="p-2 mt-2 mt-md-0" style={{minWidth: width, width, height}}>
                 {groupInfo ? (<>
                     <span
                         className="btn btn-lg btn-primary px-2 pt-0 pb-1 rounded-0 float-right"
