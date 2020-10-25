@@ -219,21 +219,23 @@ export default function App() {
                     </div>
                 </>) : (<>
                     <h4 className="ml-1 text-muted noselect">Show a dispute:</h4>
-                    {Object.entries(MAP_GROUPS).map(([id, info]) => (
-                        <li key={id}
-                            className={classNames('list-group-item noselect clickable', group === id && 'pl-3')}
-                            style={{opacity: group === id && .5}}
-                            onClick={() => setView({
-                                group: id,
-                                // region: info.region,
-                                center: info.center,
-                                zoom: info.zoom,
-                            })}>
-                            <h5 className={classNames('mb-0', 'text-' + (region === id ? 'white-50' : 'info'))}>
-                                {info.name}
-                            </h5>
-                        </li>
-                    ))}
+                    <ul className="list-group mt-3 mb-2">
+                        {Object.entries(MAP_GROUPS).map(([id, info]) => (
+                            <li key={id}
+                                className={classNames('list-group-item noselect clickable', group === id && 'pl-3')}
+                                style={{opacity: group === id && .5}}
+                                onClick={() => setView({
+                                    group: id,
+                                    // region: info.region,
+                                    center: info.center,
+                                    zoom: info.zoom,
+                                })}>
+                                <h5 className={classNames('mb-0', 'text-' + (region === id ? 'white-50' : 'info'))}>
+                                    {info.name}
+                                </h5>
+                            </li>
+                        ))}
+                    </ul>
                 </>)}
             </div>
         </div>
