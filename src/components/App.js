@@ -193,7 +193,7 @@ export default function App() {
                         <FaArrowUp className="text-dark" size={100}/>
                     </div>
                     <div className="px-2 mt-4">
-                        <h3 className="text-white">Can <span className="text-warning">Google Maps</span> spread
+                        <h3 className="text-white">Does <span className="text-warning">Google Maps</span> spread
                             propaganda?</h3>
                         <h4 className="text-white-50">View borders from different countries and decide for
                             yourself.</h4>
