@@ -193,7 +193,7 @@ export default function App() {
                     <div className="m-5 pl-4 d-none d-md-block">
                         <FaArrowUp className="text-dark" size={100}/>
                     </div>
-                    <div className="px-2 mt-4">
+                    <div className="px-2 mt-4 noselect">
                         <h3 className="text-white">Does <span className="text-warning">Google Maps</span> spread
                             propaganda?</h3>
                         <h4 className="text-white-50">View borders from different countries and decide for
