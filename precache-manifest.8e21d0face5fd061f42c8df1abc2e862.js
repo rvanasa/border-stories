@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "da5bcdb99caee545d6fbf6f1c9e61672",
+    "revision": "ed290eec14148e0233fc920f466b2970",
     "url": "https://rvanasa.github.io/border-stories/index.html"
   },
   {
-    "revision": "61d518d06203174effa1",
+    "revision": "bafa8eca3b9f511af618",
     "url": "https://rvanasa.github.io/border-stories/static/css/main.c1c9667c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://rvanasa.github.io/border-stories/static/js/2.8a363d2d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "61d518d06203174effa1",
-    "url": "https://rvanasa.github.io/border-stories/static/js/main.8b4f23ca.chunk.js"
+    "revision": "bafa8eca3b9f511af618",
+    "url": "https://rvanasa.github.io/border-stories/static/js/main.7fb899ba.chunk.js"
   },
   {
     "revision": "54de9739e2f23c809d53",
