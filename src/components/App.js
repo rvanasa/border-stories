@@ -16,6 +16,7 @@ export default function App() {
         arrayFormat: 'separator',
         arrayFormatSeparator: ';',
         skipNull: true,
+        skipEmptyString: true,
     };
     let query = queryString.parse(window.location.search, queryOptions);
 
@@ -46,13 +47,13 @@ export default function App() {
         };
     }
 
-    function setView(delta) {
+    function setView(delta, resetAll) {
         if(delta.center && delta.zoom > 0) {
             let digits = Math.pow(10, delta.zoom);
             delta.center = delta.center.map(n => Math.round(n * digits) / digits);
         }
         window.location.search = queryString.stringify({
-            ...queryString.parse(window.location.search, queryOptions),
+            ...(!resetAll && queryString.parse(window.location.search, queryOptions)),
             ...delta,
         }, queryOptions);
     }
@@ -210,7 +211,7 @@ export default function App() {
                 {groupInfo ? (<>
                     <span
                         className="btn btn-lg btn-primary px-2 pt-0 pb-1 rounded-0 float-right"
-                        onClick={() => setView({...getMapParams(), group: null})}>
+                        onClick={() => setView({}, true)}>
                         <FaTimes/>
                     </span>
                     <h3 className="ml-1 text-info noselect">{groupInfo.name}</h3>
