@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {Circle, GoogleMap, Marker, withGoogleMap, withScriptjs} from 'react-google-maps';
 import Select from 'react-select';
@@ -8,9 +8,11 @@ import {MAP_REGIONS} from '../services/mapRegion';
 import queryString from 'query-string';
 import {MAP_STYLES} from '../services/mapStyle';
 import {MAP_GROUPS} from '../services/mapGroup';
-import {FaArrowUp, FaTimes} from 'react-icons/all';
+import {FaArrowUp, FaPlus, FaTimes} from 'react-icons/all';
+import Link from './Link';
 
 export default function App() {
+    let [detail, setDetail] = useState(null);
 
     let queryOptions = {
         arrayFormat: 'separator',
@@ -24,8 +26,6 @@ export default function App() {
     let region = query.region;// || 'US';
     let center = parsePosition(query.center || '40;40');
     let zoom = +query.zoom || 3;
-
-    console.log(center);
 
     let map = null;
 
@@ -157,88 +157,142 @@ export default function App() {
 
     let groupInfo = MAP_GROUPS[group];
 
-    let width = window.innerWidth >= 800 ? 300 : null;
+    let mobile = window.innerWidth < 800;
+    let width = !mobile ? 300 : null;
     let height = width ? '100vh' : null;
 
     return (
         <div className="d-flex flex-column flex-md-row" style={{background: '#222'}}>
-            <div className="p-2" style={{minWidth: width, width, height}}>
-                <div className="mt-1">
-                    <Select
-                        className="w-100"
-                        options={regionOptions}
-                        defaultValue={regionOptions.find(({value}) => region === value)}
-                        isClearable={true}
-                        placeholder="Choose a perspective..."
-                        onChange={opt => setView({
-                            region: opt && opt.value,
-                            ...getMapParams(),
-                        })}
-                    />
+            {(!detail || !mobile) && (
+                <div className="p-2" style={{minWidth: width, width, height}}>
+                    <div className="mt-1">
+                        <Select
+                            className="w-100"
+                            options={regionOptions}
+                            defaultValue={regionOptions.find(({value}) => region === value)}
+                            isClearable={true}
+                            placeholder="Choose a perspective..."
+                            onChange={opt => setView({
+                                region: opt && opt.value,
+                                ...getMapParams(),
+                            })}
+                        />
+                    </div>
+                    {groupInfo ? (<>
+                        <ul className="list-group mt-3 mb-2">
+                            {groupInfo.regions && groupInfo.regions.map(id => (
+                                <li key={id}
+                                    className={classNames('list-group-item noselect clickable', region === id && 'pl-3')}
+                                    style={{opacity: region === id && .5}}
+                                    onClick={() => setView({region: id, ...getMapParams()})}>
+                                    <h5 className={classNames('mb-0', 'text-' + (region === id ? 'white-50' : 'success'))}>
+                                        {MAP_REGIONS[id] || id}
+                                    </h5>
+                                </li>
+                            ))}
+                        </ul>
+                    </>) : (<>
+                        <div className="m-5 pl-4 d-none d-md-block">
+                            <FaArrowUp className="text-dark" size={100}/>
+                        </div>
+                        <div className="px-2 mt-4 noselect">
+                            <h3 className="text-white">Does <span className="text-warning">Google Maps</span> spread
+                                propaganda?</h3>
+                            <h4 className="text-white-50">View borders from different countries and decide for
+                                yourself.</h4>
+                        </div>
+                    </>)}
                 </div>
-                {groupInfo ? (<>
-                    <ul className="list-group mt-3 mb-2">
-                        {groupInfo.regions && groupInfo.regions.map(id => (
-                            <li key={id}
-                                className={classNames('list-group-item noselect clickable', region === id && 'pl-3')}
-                                style={{opacity: region === id && .5}}
-                                onClick={() => setView({region: id, ...getMapParams()})}>
-                                <h5 className={classNames('mb-0', 'text-' + (region === id ? 'white-50' : 'success'))}>
-                                    {MAP_REGIONS[id] || id}
-                                </h5>
-                            </li>
-                        ))}
-                    </ul>
-                </>) : (<>
-                    <div className="m-5 pl-4 d-none d-md-block">
-                        <FaArrowUp className="text-dark" size={100}/>
+            )}
+            {detail ? (
+                <div className="d-flex flex-column" style={{maxHeight: '100vh'}}>
+                    <div className="h4 mb-0 p-4 w-100 text-body"
+                         style={{background: '#1A1A1A', lineHeight: 1.5, overflowY: 'auto'}}>
+                        {/*onClick={() => setDetail(null)}>*/}
+                        {/*<h1 className="text-muted">Border Stories</h1>*/}
+                        <p>
+                            In order to appeal to everyone, Google Maps draws national borders
+                            differently based on your location.
+                        </p>
+                        <p className="text-success">
+                            Clever, right?
+                        </p>
+                        <p>
+                            Unfortunately, this feature has political consequences. In 2010, a misplaced
+                            border between Nicaragua and Costa Rica almost caused an armed conflict known as the <Link
+                            href="https://opinionator.blogs.nytimes.com/2012/02/28/the-first-google-maps-war/">"First
+                            Google Maps War."</Link>
+                        </p>
+                        <p className="text-success">
+                            Mistakes happen.
+                        </p>
+                        <p>
+                            During the 2014 annexation of Crimea, <Link
+                            href="https://apnews.com/article/dfe637594e36792a2b89b66134ccde0e">the Russian government
+                            threatened legal action</Link> until Google started showing the contested peninsula as part
+                            of
+                            Russia.
+                        </p>
+                        <p>
+                            Likewise, Google Maps does not acknowledge the Jammu and Kashmir border conflict (<Link
+                            href="https://www.amnesty.org/en/countries/asia-and-the-pacific/india/report-india/">known
+                            for its violence and human rights abuses</Link>) when viewed from India.
+                        </p>
+                        <p className="text-success">
+                            By remaining neutral and staying out of trouble, does Google Maps enable countries to
+                            spread propaganda?
+                        </p>
                     </div>
-                    <div className="px-2 mt-4 noselect">
-                        <h3 className="text-white">Does <span className="text-warning">Google Maps</span> spread
-                            propaganda?</h3>
-                        <h4 className="text-white-50">View borders from different countries and decide for
-                            yourself.</h4>
+                    <div className="btn btn-lg btn-primary d-block my-3 mx-2 mx-md-0" onClick={() => setDetail(null)}>
+                        Back to map
                     </div>
-                </>)}
-            </div>
-            <MapContainer
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?${Object.entries(mapParams).map(([k, v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v)).join('&')}`}
-                containerElement={<div className="flex-grow-1"/>}
-                loadingElement={<div style={{width: '100%', height: '100%', minHeight: 300}}/>}
-                mapElement={<div style={{width: '100%', height: '100%', minHeight: 300}}/>}
-            />
-            <div className="p-2 mt-2 mt-md-0" style={{minWidth: width, width, height}}>
-                {groupInfo ? (<>
+                </div>
+            ) : (
+                <MapContainer
+                    googleMapURL={`https://maps.googleapis.com/maps/api/js?${Object.entries(mapParams).map(([k, v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v)).join('&')}`}
+                    containerElement={<div className="flex-grow-1"/>}
+                    loadingElement={<div style={{width: '100%', height: '100%', minHeight: 300}}/>}
+                    mapElement={<div style={{width: '100%', height: '100%', minHeight: 300}}/>}
+                />
+            )}
+            {(!detail || !mobile) && (
+                <div className="p-2 mt-2 mt-md-0" style={{minWidth: width, width, height}}>
+                    {groupInfo ? (<>
                     <span
                         className="btn btn-lg btn-primary px-2 pt-0 pb-1 rounded-0 float-right"
                         onClick={() => setView({}, true)}>
                         <FaTimes/>
                     </span>
-                    <h3 className="ml-1 text-info noselect">{groupInfo.name}</h3>
-                    <div className="px-2">
-                        {groupInfo.description}
-                    </div>
-                </>) : (<>
-                    <h4 className="ml-1 text-muted noselect">Show a dispute:</h4>
-                    <ul className="list-group mt-3 mb-2">
-                        {Object.entries(MAP_GROUPS).map(([id, info]) => (
-                            <li key={id}
-                                className={classNames('list-group-item noselect clickable', group === id && 'pl-3')}
-                                style={{opacity: group === id && .5}}
-                                onClick={() => setView({
-                                    group: id,
-                                    // region: info.region,
-                                    center: info.center,
-                                    zoom: info.zoom,
-                                })}>
-                                <h5 className={classNames('mb-0', 'text-' + (region === id ? 'white-50' : 'info'))}>
-                                    {info.name}
-                                </h5>
-                            </li>
-                        ))}
-                    </ul>
-                </>)}
-            </div>
+                        <h3 className="ml-1 text-info noselect">{groupInfo.name}</h3>
+                        <div className="px-2">
+                            {groupInfo.description}
+                        </div>
+                    </>) : (<>
+                        <h4 className="ml-1 text-muted noselect">Show a dispute:</h4>
+                        <ul className="list-group mt-3 mb-2">
+                            {Object.entries(MAP_GROUPS).map(([id, info]) => (
+                                <li key={id}
+                                    className={classNames('list-group-item noselect clickable', group === id && 'pl-3')}
+                                    style={{opacity: group === id && .5}}
+                                    onClick={() => setView({
+                                        group: id,
+                                        // region: info.region,
+                                        center: info.center,
+                                        zoom: info.zoom,
+                                    })}>
+                                    <h5 className={classNames('mb-0', 'text-' + (region === id ? 'white-50' : 'info'))}>
+                                        {info.name}
+                                    </h5>
+                                </li>
+                            ))}
+                        </ul>
+                        <h5 className="clickable my-3 text-light pl-3"
+                            onClick={() => setDetail(detail === 'summary' ? null : 'summary')}>
+                            {detail === 'summary' ? 'Back to map' : 'What?'}
+                        </h5>
+                    </>)}
+                </div>
+            )}
         </div>
     );
 };
