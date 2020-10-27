@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "https://rvanasa.github.io/border-stories/static/css/main.ccb52142.chunk.css",
-    "main.js": "https://rvanasa.github.io/border-stories/static/js/main.1283aa0b.chunk.js",
-    "main.js.map": "https://rvanasa.github.io/border-stories/static/js/main.1283aa0b.chunk.js.map",
+    "main.js": "https://rvanasa.github.io/border-stories/static/js/main.29eafcfb.chunk.js",
+    "main.js.map": "https://rvanasa.github.io/border-stories/static/js/main.29eafcfb.chunk.js.map",
     "runtime-main.js": "https://rvanasa.github.io/border-stories/static/js/runtime-main.b780a258.js",
     "runtime-main.js.map": "https://rvanasa.github.io/border-stories/static/js/runtime-main.b780a258.js.map",
-    "static/js/2.5b4669f5.chunk.js": "https://rvanasa.github.io/border-stories/static/js/2.5b4669f5.chunk.js",
-    "static/js/2.5b4669f5.chunk.js.map": "https://rvanasa.github.io/border-stories/static/js/2.5b4669f5.chunk.js.map",
+    "static/js/2.11a7776f.chunk.js": "https://rvanasa.github.io/border-stories/static/js/2.11a7776f.chunk.js",
+    "static/js/2.11a7776f.chunk.js.map": "https://rvanasa.github.io/border-stories/static/js/2.11a7776f.chunk.js.map",
     "index.html": "https://rvanasa.github.io/border-stories/index.html",
-    "precache-manifest.897519c7a19894d3f2847074ed72b903.js": "https://rvanasa.github.io/border-stories/precache-manifest.897519c7a19894d3f2847074ed72b903.js",
+    "precache-manifest.e59bfadd601b5ab1318444b860dc34c6.js": "https://rvanasa.github.io/border-stories/precache-manifest.e59bfadd601b5ab1318444b860dc34c6.js",
     "service-worker.js": "https://rvanasa.github.io/border-stories/service-worker.js",
     "static/css/main.ccb52142.chunk.css.map": "https://rvanasa.github.io/border-stories/static/css/main.ccb52142.chunk.css.map",
-    "static/js/2.5b4669f5.chunk.js.LICENSE.txt": "https://rvanasa.github.io/border-stories/static/js/2.5b4669f5.chunk.js.LICENSE.txt"
+    "static/js/2.11a7776f.chunk.js.LICENSE.txt": "https://rvanasa.github.io/border-stories/static/js/2.11a7776f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b780a258.js",
-    "static/js/2.5b4669f5.chunk.js",
+    "static/js/2.11a7776f.chunk.js",
     "static/css/main.ccb52142.chunk.css",
-    "static/js/main.1283aa0b.chunk.js"
+    "static/js/main.29eafcfb.chunk.js"
   ]
 }
