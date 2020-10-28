@@ -8,7 +8,7 @@ import {MAP_REGIONS} from '../services/mapRegion';
 import queryString from 'query-string';
 import {MAP_STYLES} from '../services/mapStyle';
 import {MAP_GROUPS} from '../services/mapGroup';
-import {FaArrowUp, FaPlus, FaTimes} from 'react-icons/all';
+import {FaArrowUp, FaQuestionCircle, FaTimes} from 'react-icons/all';
 import Link from './Link';
 
 export default function App() {
@@ -286,10 +286,17 @@ export default function App() {
                                 </li>
                             ))}
                         </ul>
-                        <h5 className="clickable my-3 text-light pl-3"
+                        {/*<h5 className="clickable my-3 text-light pl-3"*/}
+                        {/*    onClick={() => setDetail(detail === 'summary' ? null : 'summary')}>*/}
+                        {/*    {detail === 'summary' ? 'Back to map' : 'What?'}*/}
+                        {/*</h5>*/}
+                        {/*{!detail && (*/}
+                        <div
+                            className={classNames('m-4 m-md-5 py-2 text-center clickable', detail ? 'text-white' : 'text-muted')}
                             onClick={() => setDetail(detail === 'summary' ? null : 'summary')}>
-                            {detail === 'summary' ? 'Back to map' : 'What?'}
-                        </h5>
+                            <FaQuestionCircle size={50}/>
+                        </div>
+                        {/*)}*/}
                     </>)}
                 </div>
             )}
