@@ -208,8 +208,6 @@ export default function App() {
                 <div className="d-flex flex-column" style={{maxHeight: '100vh'}}>
                     <div className="h4 mb-0 p-4 w-100 text-body"
                          style={{background: '#1A1A1A', lineHeight: 1.5, overflowY: 'auto'}}>
-                        {/*onClick={() => setDetail(null)}>*/}
-                        {/*<h1 className="text-muted">Border Stories</h1>*/}
                         <p>
                             In order to appeal to everyone, Google Maps draws national borders
                             differently based on your location.
@@ -286,17 +284,11 @@ export default function App() {
                                 </li>
                             ))}
                         </ul>
-                        {/*<h5 className="clickable my-3 text-light pl-3"*/}
-                        {/*    onClick={() => setDetail(detail === 'summary' ? null : 'summary')}>*/}
-                        {/*    {detail === 'summary' ? 'Back to map' : 'What?'}*/}
-                        {/*</h5>*/}
-                        {/*{!detail && (*/}
                         <div
                             className={classNames('m-4 m-md-5 py-2 text-center clickable', detail ? 'text-white' : 'text-muted')}
                             onClick={() => setDetail(detail === 'summary' ? null : 'summary')}>
                             <FaQuestionCircle size={50}/>
                         </div>
-                        {/*)}*/}
                     </>)}
                 </div>
             )}
