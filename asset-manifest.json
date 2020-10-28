@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "https://rvanasa.github.io/border-stories/static/css/main.fe50f083.chunk.css",
-    "main.js": "https://rvanasa.github.io/border-stories/static/js/main.711c96ac.chunk.js",
-    "main.js.map": "https://rvanasa.github.io/border-stories/static/js/main.711c96ac.chunk.js.map",
+    "main.js": "https://rvanasa.github.io/border-stories/static/js/main.9afcbaa4.chunk.js",
+    "main.js.map": "https://rvanasa.github.io/border-stories/static/js/main.9afcbaa4.chunk.js.map",
     "runtime-main.js": "https://rvanasa.github.io/border-stories/static/js/runtime-main.b780a258.js",
     "runtime-main.js.map": "https://rvanasa.github.io/border-stories/static/js/runtime-main.b780a258.js.map",
     "static/js/2.50cd599a.chunk.js": "https://rvanasa.github.io/border-stories/static/js/2.50cd599a.chunk.js",
     "static/js/2.50cd599a.chunk.js.map": "https://rvanasa.github.io/border-stories/static/js/2.50cd599a.chunk.js.map",
     "index.html": "https://rvanasa.github.io/border-stories/index.html",
-    "precache-manifest.da475d59311d8b1a661e35a01bae4381.js": "https://rvanasa.github.io/border-stories/precache-manifest.da475d59311d8b1a661e35a01bae4381.js",
+    "precache-manifest.94b44f1efbb23557625d7b08636fe31f.js": "https://rvanasa.github.io/border-stories/precache-manifest.94b44f1efbb23557625d7b08636fe31f.js",
     "service-worker.js": "https://rvanasa.github.io/border-stories/service-worker.js",
     "static/css/main.fe50f083.chunk.css.map": "https://rvanasa.github.io/border-stories/static/css/main.fe50f083.chunk.css.map",
     "static/js/2.50cd599a.chunk.js.LICENSE.txt": "https://rvanasa.github.io/border-stories/static/js/2.50cd599a.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b780a258.js",
     "static/js/2.50cd599a.chunk.js",
     "static/css/main.fe50f083.chunk.css",
-    "static/js/main.711c96ac.chunk.js"
+    "static/js/main.9afcbaa4.chunk.js"
   ]
 }
